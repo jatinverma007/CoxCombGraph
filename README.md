@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/CustomCoxcombLibrary.svg?style=flat)](https://cocoapods.org/pods/CustomCoxcombLibrary)
 [![Platform](https://img.shields.io/cocoapods/p/CustomCoxcombLibrary.svg?style=flat)](https://cocoapods.org/pods/CustomCoxcombLibrary)
 
-![](AnimatedGif.gif)
+![](AnimatedGraph.gif)
 
 ## Example
 
