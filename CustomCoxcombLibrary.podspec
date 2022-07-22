@@ -30,7 +30,10 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '13.0'
 
-  s.source_files = 'CustomCoxcombLibrary/Classes/*'
+  s.source_files = 'CustomCoxcombLibrary/Classes/CustomCell/*.{h,m}'
+  s.source_files = 'CustomCoxcombLibrary/Classes/CustomClasses/*.{h,m}'
+  s.source_files = 'CustomCoxcombLibrary/Classes/Extensions/*.{h,m}'
+  s.source_files = 'CustomCoxcombLibrary/Classes/*.{h,m}'
   
   s.swift_version = '5.0'
   

@@ -125,8 +125,8 @@
 		3E6631B7288AA70800FE0592 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3E6631C2288AA75700FE0592 /* Custom Cell */,
-				3E6631BE288AA75600FE0592 /* Custom Classes */,
+				3E6631C2288AA75700FE0592 /* CustomCell */,
+				3E6631BE288AA75600FE0592 /* CustomClasses */,
 				3E6631BA288AA75600FE0592 /* Extensions */,
 				3E6631B8288AA73500FE0592 /* CustomCoxcombLibrary.swift */,
 			);
@@ -143,22 +143,22 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		3E6631BE288AA75600FE0592 /* Custom Classes */ = {
+		3E6631BE288AA75600FE0592 /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
 				3E6631BF288AA75600FE0592 /* CXShapeLayer.swift */,
 				3E6631C0288AA75600FE0592 /* CXLabel.swift */,
 				3E6631C1288AA75600FE0592 /* CXCustomGraph.swift */,
 			);
-			path = "Custom Classes";
+			path = CustomClasses;
 			sourceTree = "<group>";
 		};
-		3E6631C2288AA75700FE0592 /* Custom Cell */ = {
+		3E6631C2288AA75700FE0592 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
 				3E6631C3288AA75700FE0592 /* OCGraphLabelCollectionViewCell.swift */,
 			);
-			path = "Custom Cell";
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 		3EC0711C8557A78F64CD730571F8EDCB /* Support Files */ = {
