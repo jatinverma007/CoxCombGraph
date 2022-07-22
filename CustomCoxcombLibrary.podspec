@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 'This library make create different arcs based on the value, colors and images by the user.'
                        DESC
 
-  s.homepage         = 'https://github.com/jatinverma007/CustomCoxcombLibrary'
+  s.homepage         = 'https://github.com/jatinverma007/CoxCombGraph'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'jatinverma007' => 'jatin.verma@eroute.in' }
-  s.source           = { :git => 'https://github.com/jatinverma007/CustomCoxcombLibrary.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/jatinverma007/CoxCombGraph.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '13.0'
