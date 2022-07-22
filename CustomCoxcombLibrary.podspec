@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CustomCoxcombLibrary'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'A Custom pie chart with different radius and value'
 
 # This description is used to generate tags and improve search results.
