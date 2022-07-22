@@ -40,13 +40,13 @@ pod 'CustomCoxcombLibrary'
             customGraph.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
             customGraph.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
             customGraph.heightAnchor.constraint(equalToConstant: 350)
-        ])
-    }
+            ])
+        }
     
         override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        customGraph.drawChart()
-    }
+            super.viewDidLayoutSubviews()
+            customGraph.drawChart()
+        }
 
 
 ## Author
