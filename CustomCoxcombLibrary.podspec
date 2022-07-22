@@ -24,16 +24,13 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/jatinverma007/CoxCombGraph'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'jatinverma007' => 'jatin.verma@eroute.in' }
+  s.author           = { 'jatinverma007' => 'jatin.v1997@gmail.com' }
   s.source           = { :git => 'https://github.com/jatinverma007/CoxCombGraph.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '13.0'
 
-  s.source_files = 'CustomCoxcombLibrary/Classes/CustomCell/OCGraphLabelCollectionViewCell'
-  s.source_files = 'CustomCoxcombLibrary/Classes/CustomClasses/CXShapeLayer'
-  s.source_files = 'CustomCoxcombLibrary/Classes/CustomClasses/CXLabel'
-  s.source_files = 'CustomCoxcombLibrary/Classes/CustomClasses/CXCustomGraph'
+  s.source_files = 'Classes/**/*'
   
   s.swift_version = '5.0'
   
