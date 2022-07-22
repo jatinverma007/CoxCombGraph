@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'CustomCoxcombLibrary'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of CustomCoxcombLibrary.'
+  s.summary          = 'A Custom pie chart with different radius and value'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+'This library make create different arcs based on the value, colors and images by the user.'
                        DESC
 
   s.homepage         = 'https://github.com/jatinverma007/CustomCoxcombLibrary'
@@ -28,9 +28,15 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/jatinverma007/CustomCoxcombLibrary.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '13.0'
 
   s.source_files = 'CustomCoxcombLibrary/Classes/**/*'
+  
+  s.swift_version = '5.0'
+  
+  s.platforms = {
+      "ios": "13.0"
+  }
   
   # s.resource_bundles = {
   #   'CustomCoxcombLibrary' => ['CustomCoxcombLibrary/Assets/*.png']
