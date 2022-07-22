@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/CustomCoxcombLibrary.svg?style=flat)](https://cocoapods.org/pods/CustomCoxcombLibrary)
 [![Platform](https://img.shields.io/cocoapods/p/CustomCoxcombLibrary.svg?style=flat)](https://cocoapods.org/pods/CustomCoxcombLibrary)
 
+![](AnimatedGif.gif)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
