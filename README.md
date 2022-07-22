@@ -24,7 +24,7 @@ pod 'CustomCoxcombLibrary'
 
 ## Author
 
-jatinverma007, jatin.verma@eroute.in
+jatinverma007, jatin.v1997@gmail.com
 
 ## License
 
