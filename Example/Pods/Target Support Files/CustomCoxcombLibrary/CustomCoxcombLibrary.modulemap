@@ -1,0 +1,6 @@
+framework module CustomCoxcombLibrary {
+  umbrella header "CustomCoxcombLibrary-umbrella.h"
+
+  export *
+  module * { export * }
+}

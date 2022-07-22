@@ -1,0 +1,16 @@
+PODS:
+  - CustomCoxcombLibrary (0.1.0)
+
+DEPENDENCIES:
+  - CustomCoxcombLibrary (from `../`)
+
+EXTERNAL SOURCES:
+  CustomCoxcombLibrary:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CustomCoxcombLibrary: 8f7f960f0a8cacd16e83d128c652a66fca0bf7c9
+
+PODFILE CHECKSUM: 0b134dfdef0f6e056f9d56b6ffef7889f246a851
+
+COCOAPODS: 1.10.1
