@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		1DF85662A3D156514FB213FEA9826186 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		2F224BC570E101E53C45DA5E59183B9B /* Pods-CustomCoxcombLibrary_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FB79F27D51BE7AA86C369D9901147A42 /* Pods-CustomCoxcombLibrary_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3E6631B9288AA73500FE0592 /* CustomCoxcombLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6631B8288AA73500FE0592 /* CustomCoxcombLibrary.swift */; };
-		3E6631C4288AA75700FE0592 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6631BB288AA75600FE0592 /* UIColor+Extension.swift */; };
-		3E6631C5288AA75700FE0592 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6631BC288AA75600FE0592 /* UILabel+Extension.swift */; };
-		3E6631C6288AA75700FE0592 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6631BD288AA75600FE0592 /* Double+Extension.swift */; };
 		3E6631C7288AA75700FE0592 /* CXShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6631BF288AA75600FE0592 /* CXShapeLayer.swift */; };
 		3E6631C8288AA75700FE0592 /* CXLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6631C0288AA75600FE0592 /* CXLabel.swift */; };
 		3E6631C9288AA75700FE0592 /* CXCustomGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6631C1288AA75600FE0592 /* CXCustomGraph.swift */; };
@@ -52,10 +48,6 @@
 		2CE5F9E93D74A177DE96FEBCC5F259A3 /* Pods-CustomCoxcombLibrary_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CustomCoxcombLibrary_Example.release.xcconfig"; sourceTree = "<group>"; };
 		33902F370BC934791BF6D3B5FA90C376 /* Pods-CustomCoxcombLibrary_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CustomCoxcombLibrary_Example-frameworks.sh"; sourceTree = "<group>"; };
 		3BEC43ACF20D9624BE621E55E9092BFE /* Pods-CustomCoxcombLibrary_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CustomCoxcombLibrary_Tests.modulemap"; sourceTree = "<group>"; };
-		3E6631B8288AA73500FE0592 /* CustomCoxcombLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCoxcombLibrary.swift; sourceTree = "<group>"; };
-		3E6631BB288AA75600FE0592 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		3E6631BC288AA75600FE0592 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
-		3E6631BD288AA75600FE0592 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		3E6631BF288AA75600FE0592 /* CXShapeLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXShapeLayer.swift; sourceTree = "<group>"; };
 		3E6631C0288AA75600FE0592 /* CXLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXLabel.swift; sourceTree = "<group>"; };
 		3E6631C1288AA75600FE0592 /* CXCustomGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXCustomGraph.swift; sourceTree = "<group>"; };
@@ -127,20 +119,8 @@
 			children = (
 				3E6631C2288AA75700FE0592 /* CustomCell */,
 				3E6631BE288AA75600FE0592 /* CustomClasses */,
-				3E6631BA288AA75600FE0592 /* Extensions */,
-				3E6631B8288AA73500FE0592 /* CustomCoxcombLibrary.swift */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		3E6631BA288AA75600FE0592 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				3E6631BB288AA75600FE0592 /* UIColor+Extension.swift */,
-				3E6631BC288AA75600FE0592 /* UILabel+Extension.swift */,
-				3E6631BD288AA75600FE0592 /* Double+Extension.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3E6631BE288AA75600FE0592 /* CustomClasses */ = {
@@ -425,12 +405,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E6631C5288AA75700FE0592 /* UILabel+Extension.swift in Sources */,
 				3E6631CA288AA75700FE0592 /* OCGraphLabelCollectionViewCell.swift in Sources */,
-				3E6631C4288AA75700FE0592 /* UIColor+Extension.swift in Sources */,
 				3E6631C7288AA75700FE0592 /* CXShapeLayer.swift in Sources */,
-				3E6631B9288AA73500FE0592 /* CustomCoxcombLibrary.swift in Sources */,
-				3E6631C6288AA75700FE0592 /* Double+Extension.swift in Sources */,
 				F91871C24DDC91CAB894A011E7A33924 /* CustomCoxcombLibrary-dummy.m in Sources */,
 				3E6631C9288AA75700FE0592 /* CXCustomGraph.swift in Sources */,
 				3E6631C8288AA75700FE0592 /* CXLabel.swift in Sources */,

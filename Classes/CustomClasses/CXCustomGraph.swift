@@ -381,3 +381,68 @@ extension CXCustomGraph: UICollectionViewDelegate, UICollectionViewDataSource, U
         self.layerSelectedAtIndex(index: indexPath.item)
     }
 }
+
+
+extension UIColor {
+    class func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+}
+
+
+extension UILabel {
+    func textWidth() -> CGFloat {
+        return UILabel.textWidth(label: self)
+    }
+    
+    class func textWidth(label: UILabel) -> CGFloat {
+        return textWidth(label: label, text: label.text!)
+    }
+    
+    class func textWidth(label: UILabel, text: String) -> CGFloat {
+        return textWidth(font: label.font, text: text)
+    }
+    
+    class func textWidth(font: UIFont, text: String) -> CGFloat {
+        let myText = text as NSString
+        
+        let rect = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
+        let labelSize = myText.boundingRect(with: rect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        return ceil(labelSize.width)
+    }
+    
+}
+
+extension Double {
+    var kmFormatted: String {
+        
+        if self >= 1000, self <= 999999 {
+            return String(format: "%.1fK", locale: Locale(identifier: "en_IN"),self/1000).replacingOccurrences(of: ".0", with: "")
+        }
+        
+        if self > 999999 {
+            return String(format: "%.1fM", locale: Locale(identifier: "en_IN"),self/1000000).replacingOccurrences(of: ".0", with: "")
+        }
+        
+        return String(format: "%.0f", locale: Locale(identifier: "en_IN"),self)
+    }
+    
+}
