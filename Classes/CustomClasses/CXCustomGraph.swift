@@ -79,7 +79,7 @@ public class CXCustomGraph: UIView {
         collectionView.reloadData()
     }
     
-    func drawChart() {
+    public func drawChart() {
         total = value.reduce(0, { x, y in
             return x + y
         })
