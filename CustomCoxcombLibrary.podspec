@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
   
   s.platforms = {
-      "ios": "9.0"
+      "ios": "10.0"
   }
   
   # s.resource_bundles = {

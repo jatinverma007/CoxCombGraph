@@ -40,6 +40,8 @@ public class CXCustomGraph: UIView {
     //Collection view to show data
     var collectionView: UICollectionView!
     
+    public var delegate:CXCustomGraphProtocol? = nil
+    
     public init(name:[String], value: [Double], color: [UIColor], icons: [UIImage]) {
         self.name = name
         self.value = value
@@ -216,6 +218,8 @@ public class CXCustomGraph: UIView {
         else {
             self.selectedIndex = index
         }
+        
+        self.delegate?.didSelectCurrentIndex(index: self.selectedIndex)
         
         //For Circular Arc
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -445,4 +449,8 @@ extension Double {
         return String(format: "%.0f", locale: Locale(identifier: "en_IN"),self)
     }
     
+}
+
+public protocol CXCustomGraphProtocol:AnyObject {
+    func didSelectCurrentIndex(index: Int)
 }
