@@ -27,8 +27,8 @@ class ViewController: UIViewController, CXCustomGraphProtocol {
         NSLayoutConstraint.activate([
             customGraph.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
             customGraph.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
-            customGraph.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
-            customGraph.heightAnchor.constraint(equalToConstant: 350)
+            customGraph.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 40),
+            customGraph.heightAnchor.constraint(equalToConstant: 270)
         ])
     }
 

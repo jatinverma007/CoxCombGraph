@@ -67,7 +67,7 @@ public class CXCustomGraph: UIView {
         collectionView.register(OCGraphLabelCollectionViewCell.self, forCellWithReuseIdentifier: OCGraphLabelCollectionViewCell.identifier)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor.white
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         self.addSubview(collectionView)
@@ -75,7 +75,7 @@ public class CXCustomGraph: UIView {
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
             collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-            collectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 35),
+            collectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
             collectionView.heightAnchor.constraint(equalToConstant: 40)
         ])
         collectionView.reloadData()
@@ -88,14 +88,14 @@ public class CXCustomGraph: UIView {
         generateElements()
         setTotalLabelView()
     }
-    
+
     fileprivate func setTotalLabelView() {
         label.text = stringForValue(total)
         label.font = label.font.withSize(10)
         label.textAlignment = .center
         label.textColor = .white
-        label.frame = CGRect(x: Int(SCREEN_WIDTH/2) - 25 , y: Int(self.bounds.height) - 75, width: 50, height: 50)
-        backLabel.path = UIBezierPath(ovalIn: CGRect(x: SCREEN_WIDTH/2 - 20, y: self.bounds.height - 72, width: 40, height: 40)).cgPath
+        label.frame = CGRect(x: Int(SCREEN_WIDTH/2) - 25 , y: Int(self.bounds.height) - 45, width: 50, height: 50)
+        backLabel.path = UIBezierPath(ovalIn: CGRect(x: SCREEN_WIDTH/2 - 20, y: self.bounds.height - 42, width: 40, height: 40)).cgPath
         backLabel.fillColor = UIColor.gray.cgColor
         backLabel.opacity = 0.9
         self.layer.addSublayer(backLabel)
@@ -111,11 +111,11 @@ public class CXCustomGraph: UIView {
         
         for (i, _) in value.enumerated() {
             var radius = Int(value[i]) * Int(SCREEN_WIDTH * 1.5) / Int(total)
-            if radius > 135 {
-                radius = 135
+            if radius > 130 {
+                radius = 130
             }
-            if radius < 35 {
-                radius = 35
+            if radius < 15 {
+                radius = 15
             }
             let currentPath = UIBezierPath()
             makeLine(radius: Float(radius), startAngle: startAngle, endAngle: endAngle, path: currentPath, index: i)
@@ -126,14 +126,14 @@ public class CXCustomGraph: UIView {
             currentPath.close()
         }
         self.makeLabelIcons()
-        
     }
     
     fileprivate func makeLine(radius: Float, startAngle:CGFloat, endAngle: CGFloat, path: UIBezierPath, index: Int) {
         let pathLine = UIBezierPath()
-        pathLine.move(to: CGPoint(x: SCREEN_WIDTH/2 , y: 300))
-        pathLine.addArc(withCenter: CGPoint(x: SCREEN_WIDTH/2 , y: 300), radius: CGFloat(radius + 40), startAngle: startAngle + 0.25 , endAngle: startAngle + 0.25,  clockwise: true)
-        let label = CXLabel().setup(lcolor: color[index], lfont: UIFont(name: "HelveticaNeue-Medium", size: 8)!, lText: stringForValue(value[index]), lFrame: CGRect(x: pathLine.cgPath.currentPoint.x - 10, y: pathLine.cgPath.currentPoint.y - 10, width: 100, height: 10))
+        pathLine.move(to: CGPoint(x: SCREEN_WIDTH/2 , y: self.bounds.height - 25))
+        pathLine.addArc(withCenter: CGPoint(x: SCREEN_WIDTH/2 , y: self.bounds.height - 25), radius: CGFloat(radius + 40), startAngle: startAngle + 0.25 , endAngle: startAngle + 0.25,  clockwise: true)
+        let label = CXLabel().setup(lcolor: color[index], lfont: UIFont(name: "HelveticaNeue-Medium", size: 8)!, lText: stringForValue(value[index]), lFrame: CGRect(x: pathLine.cgPath.currentPoint.x - 10, y: pathLine.cgPath.currentPoint.y - 10, width: 40, height: 10))
+        label.sizeToFit()
         self.addSubview(label)
         labelLayersCollection.append(label)
         let shape = CXShapeLayer().add(shapeColor: color[index].cgColor, shapeOpacity: 1, shapeWidth: 1, shapePath: pathLine.cgPath, fillColor: color[index].cgColor, isHidden: false)
@@ -142,8 +142,8 @@ public class CXCustomGraph: UIView {
     }
     
     fileprivate func makeArc(radius: Float, startAngle:CGFloat, endAngle: CGFloat, path: UIBezierPath, index: Int) {
-        path.move(to: CGPoint(x: SCREEN_WIDTH/2 , y: 300))
-        path.addArc(withCenter: CGPoint(x: SCREEN_WIDTH/2 , y: 300), radius: CGFloat(radius + 10), startAngle: startAngle, endAngle: endAngle,  clockwise: true)
+        path.move(to: CGPoint(x: SCREEN_WIDTH/2 , y: self.bounds.height - 25))
+        path.addArc(withCenter: CGPoint(x: SCREEN_WIDTH/2 , y: self.bounds.height - 25), radius: CGFloat(radius + 10), startAngle: startAngle, endAngle: endAngle,  clockwise: true)
         
         let shape = CXShapeLayer().add(shapeColor: color[index].cgColor, shapeOpacity: 1, shapeWidth: 0, shapePath: path.cgPath, fillColor: color[index].cgColor, isHidden: false)
         self.layer.addSublayer(shape)
@@ -158,15 +158,15 @@ public class CXCustomGraph: UIView {
         for (ind,icon) in icons.enumerated() {
             let imageView = UIImageView(image: icon)
             let labelFrame = labelLayersCollection[ind]
-            imageView.frame = CGRect(x: labelFrame.frame.minX - 6, y:  labelFrame.frame.minY - 27, width: 30, height: 30)
+            imageView.frame = CGRect(x: labelFrame.center.x - 12.5, y:  labelFrame.center.y - 31, width: 25, height: 25)
             labelIconsLayersCollection.append(imageView)
             self.addSubview(imageView)
         }
     }
     
     fileprivate func makeOuterArc(radius: Float, startAngle:CGFloat, endAngle: CGFloat, path: UIBezierPath, index: Int) {
-        path.move(to: CGPoint(x: SCREEN_WIDTH/2 , y: 300))
-        path.addArc(withCenter: CGPoint(x: SCREEN_WIDTH/2 , y: 300), radius: CGFloat(radius + 17), startAngle: startAngle, endAngle: endAngle,  clockwise: true)
+        path.move(to: CGPoint(x: SCREEN_WIDTH/2 , y: self.bounds.height - 25))
+        path.addArc(withCenter: CGPoint(x: SCREEN_WIDTH/2 , y: self.bounds.height - 25), radius: CGFloat(radius + 17), startAngle: startAngle, endAngle: endAngle,  clockwise: true)
         let shape = CXShapeLayer().add(shapeColor: color[index].withAlphaComponent(0.2).cgColor, shapeOpacity: 1, shapeWidth: 0, shapePath: path.cgPath, fillColor: color[index].withAlphaComponent(0.2).cgColor, isHidden: true)
         self.layer.addSublayer(shape)
         outerArcLayersCollection.append(shape)
@@ -190,23 +190,29 @@ public class CXCustomGraph: UIView {
         return "₹" + value.kmFormatted
     }
     
-    
-    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let touchLocation = touch.location(in: self)
             let sliceLayers = self.arclayersCollection
             var currentIndex = -1
-            for (index, _) in sliceLayers.enumerated() {
-                let path = paths[index]
+            for (ind, _) in sliceLayers.enumerated() {
+                let path = paths[ind]
                 if path.contains(touchLocation) {
-                    currentIndex = index
+                    currentIndex = ind
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                        self.layerSelectedAtIndex(index: currentIndex)
+                    }
                     break
                 }
             }
-            self.layerSelectedAtIndex(index: currentIndex)
+            if currentIndex == -1 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                    self.layerSelectedAtIndex(index: currentIndex)
+                }
+            }
         }
-        super.touchesBegan(touches, with:event)
     }
+
     
     func layerSelectedAtIndex(index: Int) {
         if index == -1 && self.selectedIndex == -1 {
@@ -218,27 +224,76 @@ public class CXCustomGraph: UIView {
         else {
             self.selectedIndex = index
         }
-        
-        self.delegate?.didSelectCurrentIndex(index: self.selectedIndex)
-        
-        //For Circular Arc
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if self.selectedIndex == -1 {
-                for layer in self.arclayersCollection {
-                    layer.opacity = 1
-                }
+        if self.selectedIndex == -1 {
+            for layer in self.arclayersCollection {
+                layer.opacity = 1
             }
-            else {
-                for (ind, layer2) in self.arclayersCollection.enumerated() {
-                    if ind == self.selectedIndex {
-                        layer2.opacity = 1
-                    }
-                    else {
-                        layer2.opacity = 0.1
-                    }
-                }
+            for layer in self.labelIconsLayersCollection {
+                layer.isHidden = false
+            }
+            for layer2 in self.outerArcLayersCollection {
+                layer2.isHidden = true
+            }
+            for layer2 in self.lineslayersCollection {
+                layer2.isHidden = false
+            }
+            for layer2 in self.labelLayersCollection {
+                layer2.isHidden = false
             }
         }
+        else {
+            for (ind, layer2) in self.arclayersCollection.enumerated() {
+                if ind == self.selectedIndex {
+                    layer2.opacity = 1
+                }
+                else {
+                    layer2.opacity = 0.1
+                }
+            }
+            for (ind, layer2) in self.labelIconsLayersCollection.enumerated() {
+                if ind == self.selectedIndex {
+                    layer2.isHidden = false
+                    layer2.isHidden = false
+                    layer2.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+                    UIView.animate(withDuration: 0.6, delay: 0,
+                                   usingSpringWithDamping: 0.35,
+                                   initialSpringVelocity: 7,
+                                   options: .curveEaseOut,
+                                   animations: {
+                        layer2.transform = .identity
+                    })
+                }
+                else {
+                    layer2.isHidden = true
+                }
+            }
+            for (ind,layer2) in self.outerArcLayersCollection.enumerated() {
+                if (ind == self.selectedIndex) {
+                    layer2.isHidden = false
+                } else {
+                    layer2.isHidden = true
+                }
+            }
+            for (ind,layer2) in self.lineslayersCollection.enumerated() {
+                if (ind == self.selectedIndex) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        layer2.isHidden = false
+                    }
+                } else {
+                    layer2.isHidden = true
+                }
+            }
+            for (ind,layer2) in self.labelLayersCollection.enumerated() {
+                if (ind == self.selectedIndex) {
+                    layer2.isHidden = false
+                } else {
+                    layer2.isHidden = true
+                    
+                }
+            }
+
+        }
+        self.delegate?.didSelectCurrentIndex(index: self.selectedIndex)
         
         //For center circular button
         if self.selectedIndex == -1 {
@@ -256,96 +311,6 @@ public class CXCustomGraph: UIView {
             collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
         }
         collectionView.reloadData()
-        
-        //For selected labels icons
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if self.selectedIndex == -1 {
-                for layer2 in self.labelIconsLayersCollection {
-                    layer2.isHidden = false
-                }
-            }
-            else {
-                for (ind,layer2) in self.labelIconsLayersCollection.enumerated() {
-                    if (ind == self.selectedIndex) {
-                        layer2.isHidden = false
-                        layer2.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-                        UIView.animate(withDuration: 0.6, delay: 0,
-                                       usingSpringWithDamping: 0.35,
-                                       initialSpringVelocity: 7,
-                                       options: .curveEaseOut,
-                                       animations: {
-                            layer2.transform = .identity
-                        })
-                        
-                    } else {
-                        layer2.isHidden = true
-                    }
-                }
-                
-            }
-        }
-        
-        //For circular arc with low opacity
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if self.selectedIndex == -1 {
-                for layer2 in self.outerArcLayersCollection {
-                    layer2.isHidden = true
-                }
-            }
-            else {
-                for (ind,layer2) in self.outerArcLayersCollection.enumerated() {
-                    if (ind == self.selectedIndex) {
-                        layer2.isHidden = false
-                    } else {
-                        layer2.isHidden = true
-                    }
-                }
-                
-            }
-        }
-        
-        //For lines
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if self.selectedIndex == -1 {
-                for layer2 in self.lineslayersCollection {
-                    layer2.isHidden = false
-                }
-            }
-            else {
-                for (ind,layer2) in self.lineslayersCollection.enumerated() {
-                    if (ind == self.selectedIndex) {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            layer2.isHidden = false
-                        }
-                    } else {
-                        layer2.isHidden = true
-                    }
-                }
-                
-            }
-        }
-
-        
-        //For labels
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if self.selectedIndex == -1 {
-                for layer2 in self.labelLayersCollection {
-                    layer2.isHidden = false
-                    
-                }
-            }
-            else {
-                for (ind,layer2) in self.labelLayersCollection.enumerated() {
-                    if (ind == self.selectedIndex) {
-                        layer2.isHidden = false
-                    } else {
-                        layer2.isHidden = true
-                        
-                    }
-                }
-                
-            }
-        }
     }
 }
 
