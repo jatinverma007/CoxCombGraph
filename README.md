@@ -47,7 +47,3 @@ pod 'CustomCoxcombLibrary', :git => 'https://github.com/jatinverma007/CoxCombGra
 ## Author
 
 jatinverma007, jatin.v1997@gmail.com
-
-## License
-
-CustomCoxcombLibrary is available under the MIT license. See the LICENSE file for more info.
