@@ -42,6 +42,10 @@ public class CXCustomGraph: UIView {
     
     public var delegate:CXCustomGraphProtocol? = nil
     
+    //if you want to perform some action and wait for the graph to respond
+    public var isLoadingGraph = false
+
+    
     public init(name:[String], value: [Double], color: [UIColor], icons: [UIImage]) {
         self.name = name
         self.value = value
@@ -200,6 +204,9 @@ public class CXCustomGraph: UIView {
                 if path.contains(touchLocation) {
                     currentIndex = ind
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                        if self.isLoadingGraph {
+                            return
+                        }
                         self.layerSelectedAtIndex(index: currentIndex)
                     }
                     break
@@ -207,6 +214,9 @@ public class CXCustomGraph: UIView {
             }
             if currentIndex == -1 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                    if self.isLoadingGraph {
+                        return
+                    }
                     self.layerSelectedAtIndex(index: currentIndex)
                 }
             }
@@ -347,6 +357,9 @@ extension CXCustomGraph: UICollectionViewDelegate, UICollectionViewDataSource, U
     
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isLoadingGraph {
+            return
+        }
         self.layerSelectedAtIndex(index: indexPath.item)
     }
 }
